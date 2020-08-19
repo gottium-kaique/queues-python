@@ -28,25 +28,25 @@ class Queue:
 
   def push(self, node_value: Any) -> None:
     new_node = Node(node_value)
-      if not self.first:
-        self.first = new_node
+    if not self.first:
+      self.first = new_node
 
-      if not self.last:
-        self.last = new_node
-      else:
-        self.last.next = new_node
-        self.last = new_node
+    if not self.last:
+      self.last = new_node
+    else:
+      self.last.next = new_node
+      self.last = new_node
     self._count += 1
 
   def pop(self) -> Node:
-      if not self.first:
-        raise EmpyQueueError("Empy Queue!")
+    if not self.first:
+      raise EmpyQueueError("Empy Queue!")
     first = self.first
 
-      if hasattr(self.first, "next"):
-        self.first = self.first.next
-      else:
-        self.first = Node(EMPTY_NODE_VALUE)
+    if hasattr(self.first, "next"):
+      self.first = self.first.next
+    else:
+      self.first = Node(EMPTY_NODE_VALUE)
     self._count -= 1
     return first
 
